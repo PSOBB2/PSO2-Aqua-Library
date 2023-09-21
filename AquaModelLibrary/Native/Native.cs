@@ -1,5 +1,6 @@
 ﻿using AquaModelLibrary.Native.Fbx.Interfaces;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -16,9 +17,7 @@ namespace AquaModelLibrary.Native
 
         static Native()
         {
-            var executingAssembly = Assembly.GetExecutingAssembly();
-
-            string dllFilePath = Path.Combine(Path.GetDirectoryName(executingAssembly.Location),
+            string dllFilePath = Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName),
                 $"AquaModelLibrary.Native.X{(IntPtr.Size == 8 ? "64" : "86")}.dll");
 
             // Unblock DLL when extracted through Windows (thanks Sewer)
