@@ -511,7 +511,7 @@ namespace AquaModelLibrary.Extra
 
         private static void WritePng(string outFolder, string fname, byte[] ddsData)
         {
-            var pngName = Path.Combine(outFolder, fname + ".png");
+            var pngName = Path.Combine(outFolder, Path.GetFileNameWithoutExtension(fname) + ".png");
             using (var image = Pfim.Pfimage.FromStream(new MemoryStream(ddsData)))
             {
                 var handle = GCHandle.Alloc(image.Data, GCHandleType.Pinned);

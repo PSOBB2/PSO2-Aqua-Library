@@ -2051,11 +2051,11 @@ namespace AquaModelLibrary
         {
             for(int i = 0; i < texfList.Count; i++)
             {
-                texfList[i].texName.SetString(Path.ChangeExtension(texfList[i].texName.GetString(), ext));
+                texfList[i].texName.SetString(Path.ChangeExtension(Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(texfList[i].texName.GetString())), ext));
             }
             for (int i = 0; i < tstaList.Count; i++)
             {
-                tstaList[i].texName.SetString(Path.ChangeExtension(tstaList[i].texName.GetString(), ext));
+                tstaList[i].texName.SetString(Path.ChangeExtension(Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(tstaList[i].texName.GetString())), ext));
             }
         }
 
